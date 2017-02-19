@@ -1,0 +1,20 @@
+---
+title: "quakes"
+author: "stefan"
+date: "19 Februar 2017"
+output:
+  html_document:
+    theme: united
+    self_contained: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r quakes, message=FALSE}
+library(leaflet)
+
+leaflet(data = quakes[1:10, ], width = 800) %>% addTiles() %>%
+  addMarkers(popup = ~ sprintf("%s, %s</br><b>%s</b>", long, lat, mag))
+```
