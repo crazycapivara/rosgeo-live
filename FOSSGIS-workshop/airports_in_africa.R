@@ -28,7 +28,7 @@ plot(airports_africa, add = TRUE, col = "green")
 
 library(leaflet)
 
-# put africa and its airports to leaflet map
+# put africa and its airports to a leaflet map
 leaflet(data = africa) %>% addTiles() %>%
   addPolygons(popup = ~ as.character(NAME),
               weight = 2,
