@@ -3,15 +3,33 @@ rosgeo-live
 
 Add additional R packages handling spatial data and RStudio to [osgeo-live](http://live.osgeo.org/).
 
-Install dependencies
---------------------
+Fast lane
+---------
 
 ``` bash
-$ sudo apt-get install libudunits2-dev libv8-dev
+$ git clone https://github.com/crazycapivara/rosgeo-live.git
+$ cd rosgeo-live
+$ ./rosgeo-live_install.sh
+
+# 32-bit
+$ ./rosgeo-live_install.sh i386
 ```
 
-Install R packages
-------------------
+One by one
+----------
+
+### Install dependencies
+
+``` bash
+# R packages
+$ sudo apt-get install libudunits2-dev libv8-dev
+
+# RStudio
+sudo apt-get install -y libjpeg62 libedit2 libgstreamer0.10-0\
+ libgstreamer-plugins-base0.10-0 libssl1.0.0
+```
+
+### Install R packages
 
 ``` bash
 $ Rscript -e 'install.packages(c("sf", "leaflet", "osrm", "shiny",
@@ -19,11 +37,18 @@ $ Rscript -e 'install.packages(c("sf", "leaflet", "osrm", "shiny",
    repos="https://cran.rstudio.com")'
 ```
 
-Install RStudio
----------------
+### Install RStudio
 
 ``` bash
-$ wget https://download1.rstudio.org/rstudio-1.0.136-amd64.deb
-$ sudo dpkg -i rstudio-1.0.136-amd64.deb
+# set version and architecture
+# 64-bit
+$ rstudio=rstudio-1.0.136-amd64.deb
+# 32-bit
+$ rstudio=rstudio-1.0.136-i386.deb
+
+$ wget https://download1.rstudio.org/$rstudio
+$ sudo dpkg -i $rstudio
+
+# in case of missing dependencies run ...
 $ sudo apt-get install -f
 ```
