@@ -1,0 +1,1 @@
+devtools::install_github("environmentalinformatics-marburg/mapview@develop")
