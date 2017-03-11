@@ -17,3 +17,13 @@ plot(countries_simple, add = TRUE, col = "yellow")
 
 library(mapview)
 mapview(countries_simple)
+
+# dissolve continents
+system.time({
+  continents <- ms_dissolve(countries, "CONTINENT")
+})
+
+object.size(continents) %>% format(units = "MB")
+
+plot(continents)
+dim(continents)
