@@ -9,6 +9,7 @@ plot(africa$geometry)
 plot(st_geometry(africa))
 
 # get some infos
+attributes(africa$geometry)
 st_bbox(africa)
 st_crs(africa)
 st_geometry(africa)
@@ -18,8 +19,6 @@ centers <- st_centroid(africa)
 plot(centers$geometry, add = TRUE)
 
 africa$geometry[1] %>% st_as_text()
-#africa_ <- st_union(africa$geometry)
-#plot(st_geometry(africa_), graticule = st_crs(africa_), axes = TRUE)
 
 # convert to sp
 class(africa)
