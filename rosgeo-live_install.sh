@@ -4,7 +4,7 @@ arch=$1
 
 # --- R packages
 sudo apt-get install -y libudunits2-dev libv8-dev
-sudo Rscript -e 'install.packages(c("sf", "leaflet", "osrm", "shiny", "lawn", "rmarkdown", "rmapshaper", "gdalUtils", "geojsonio"), repos="https://cran.rstudio.com")'
+sudo Rscript -e 'install.packages(c("sf", "leaflet", "osrm", "shiny", "lawn", "rmarkdown", "rmapshaper", "gdalUtils", "geojsonio", "geosphere"), repos="https://cran.rstudio.com")'
 
 # --- RStudio
 rstudio=rstudio-1.0.136-amd64.deb
