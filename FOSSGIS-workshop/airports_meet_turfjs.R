@@ -33,7 +33,42 @@ lawn_distance(geojson_HB, geojson_HH)
 
 # use sp to calculate distance
 airports_sp <- airports %>% as("Spatial")
-spDists(airports_sp)
+sp::spDists(airports_sp)
 
 # use sf to calculate distance
 st_distance(airports[1, ], airports[2, ])
+
+# more lawn examples
+HB_buffer <- lawn_buffer(geojson_HB, 50)
+HB_buffer$type
+HB_buffer$geometry
+HB_buffer$properties
+class(HB_buffer) <- "polygon"
+# same as ...
+HB_buffer$geometry$coordinates %>% lawn_polygon() %>% view()
+lawn::view(list(geojson_HB, HB_buffer))
+a <- lawn::view(HB_buffer)
+
+b <- st_buffer(airports[1, ], 0.5)
+a %>% addPolygons(data = b, color = "red")
+
+# distance to destination
+bearing <- 45
+dest <- lawn::lawn_destination(geojson_HB, 100, bearing, "kilometers")
+lawn::view(list(geojson_HB, dest))
+
+# circle around point
+circle_HB <- lawn_circle(airports_sp@coords[1, ], 5, steps = 20)
+view(list(circle_HB, geojson_HB))
+
+# read geojson to feature collection
+js_africa <- readr::read_file("FOSSGIS-workshop/data/africa.js") %>%
+  lawn_featurecollection()
+
+lawn_area(js_africa)
+lawn_bbox(js_africa)
+lawn_center(js_africa) %>% view()
+
+africa <- sf::st_read("FOSSGIS-workshop/data/africa.js")
+sf::st_area(africa) %>% sum()
+sf::st_bbox(africa)
