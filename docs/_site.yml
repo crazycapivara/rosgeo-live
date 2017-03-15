@@ -4,8 +4,14 @@ navbar:
   left:
     - text: "Hi folks"
       href: index.html
+    - text: "gdal"
+      href: gdal.html
+    - text: "osrm"
+      href: osrm.html
     - text: "Sandbox"
       href: sandbox.html
+    - text: "nodejs"
+      href: nodejs.html
     - text: "Contact"
       href: contact.html
 output:

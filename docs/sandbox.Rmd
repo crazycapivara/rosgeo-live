@@ -11,5 +11,5 @@ library(leaflet)
 leaflet(height = 350, width = "100%") %>% addProviderTiles("CartoDB") %>%
   addMarkers(data = quakes, clusterOptions = markerClusterOptions()) %>%
   addControl("<h1>FOSSGIS 2017</h1>", "topright") %>%
-  addControl("<h2>Stefan Küthe</h2>", "bottomleft")
+  addControl("<h2>Stefan Kuethe</h2>", "bottomleft")
 ```

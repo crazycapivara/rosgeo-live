@@ -6,7 +6,7 @@ title: "FOSSGIS 2017"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Shiny on R \{Aaaahrrr\} {.big}
+## Shine on R \{Aaaahrrr\} {.big}
 
 ### Stefan Kuethe
 
@@ -16,5 +16,6 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r hi}
 library(lawn)
-lawn::gr_point()
+
+gr_point()
 ```

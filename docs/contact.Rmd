@@ -2,6 +2,6 @@
 title: "Contact"
 ---
 
-## Stefan Küthe {.big .main}
+## Stefan Kuethe {.big .main}
 
 ### stefan@fdkii.de

@@ -1,0 +1,50 @@
+---
+title: "R meets nodejs"
+output:
+  html_document:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Engine
+
+```{r v8, message=FALSE}
+library(V8)
+
+engine <- v8()
+engine$eval("var x = 42")
+engine$get("x")
+```
+
+## turfjs
+
+```{r turfjs, message=FALSE}
+data <- '{
+ "type": "Feature",
+ "properties": {},
+ "geometry": {
+     "type": "Polygon",
+     "coordinates": [[
+       [-112.072391,46.586591],
+       [-112.072391,46.61761],
+       [-112.028102,46.61761],
+       [-112.028102,46.586591],
+       [-112.072391,46.586591]
+     ]]
+   }
+}'
+(b <- lawn_buffer(data, 1, "kilometers"))
+class(b) <- "polygon"
+
+view(list(b, data)) %>% addProviderTiles("CartoDB")
+```
+
+## mapshaper
+```{r mapshaper, message=FALSE}
+library(rmapshaper)
+
+ls("package:rmapshaper")
+```

@@ -1,0 +1,23 @@
+---
+title: "gdal"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## simple features
+
+```{r sf, message=TRUE}
+library(sf)
+
+# overview
+ls("package:sf")
+
+# read data
+data <- st_read("../FOSSGIS-workshop/data/ne_10m_airports/ne_10m_airports.shp")
+
+st_crs(data)
+st_bbox(data)
+dim(data)
+```
