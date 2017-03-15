@@ -1,0 +1,41 @@
+---
+title: "Shiny on R"
+author: "Stefan Küthe"
+date: "March 15, 2017"
+output:
+  html_document:
+    toc: true
+    toc_float: false
+    theme: united
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(leaflet)
+```
+
+## Shine on R {#top}
+
+```{r leaflet, message=FALSE}
+leaflet() %>% addTiles() %>%
+  addMarkers(data = quakes, clusterOptions = markerClusterOptions())
+```
+
+## Sandbox
+
+```{r lawn, message=FALSE, warning=FALSE}
+library(lawn)
+gr_point()
+```
+
+[top](#TOC)
+
+## V8
+
+```{r v8, message=FALSE}
+library(V8)
+cmd <- v8()
+cmd$eval("console.log('Hi folks')")
+```
+
+[top](#TOC)
