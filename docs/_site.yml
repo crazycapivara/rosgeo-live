@@ -1,0 +1,15 @@
+name: "shine-on-R"
+navbar:
+  title: "Shine on R"
+  left:
+    - text: "Hi folks"
+      href: index.html
+    - text: "Sandbox"
+      href: sandbox.html
+    - text: "Contact"
+      href: contact.html
+output:
+  html_document:
+    mathjax: local
+    theme: united
+    css: styles.css

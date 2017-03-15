@@ -1,0 +1,12 @@
+---
+title: "Shiny on R"
+author: "Stefan Kuethe"
+date: "March 15, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## @FOSSGIS 2017

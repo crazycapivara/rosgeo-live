@@ -1,0 +1,13 @@
+---
+title: "Sandbox"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(leaflet)
+```
+
+```{r leaflet, message=FALSE}
+leaflet(height = 300) %>% addProviderTiles("CartoDB") %>%
+  addMarkers(data = quakes, clusterOptions = markerClusterOptions())
+```

@@ -1,0 +1,20 @@
+---
+title: "Shiny on R"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## FOSSGIS 2017 {.big}
+
+### Stefan Kuethe
+
+### March 15, 2017
+
+##
+
+```{r leaflet}
+library(leaflet)
+leaflet() %>% addProviderTiles("CartoDB") %>% addMarkers(data = quakes[1:5, ])
+```
