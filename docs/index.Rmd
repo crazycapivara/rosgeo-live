@@ -1,12 +1,12 @@
 ---
-title: "Shiny on R"
+title: "FOSSGIS 2017"
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## FOSSGIS 2017 {.big}
+## Shiny on R \{Aaaahrrr\} {.big}
 
 ### Stefan Kuethe
 
@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ##
 
-```{r leaflet}
-library(leaflet)
-leaflet() %>% addProviderTiles("CartoDB") %>% addMarkers(data = quakes[1:5, ])
+```{r hi}
+library(lawn)
+lawn::gr_point()
 ```
