@@ -10,6 +10,6 @@ navbar:
       href: contact.html
 output:
   html_document:
-    mathjax: local
+    mathjax: ""
     theme: united
     css: styles.css
