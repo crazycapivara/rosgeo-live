@@ -1,0 +1,22 @@
+---
+title: "quickstart"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(sf)
+library(magrittr)
+library(dplyr)
+library(leaflet)
+```
+
+```{r quickstart}
+fn <- "../FOSSGIS-workshop/data/africa.js"
+
+africa <- st_read(fn, quiet = TRUE) %>%
+  select(LABELRANK, INCOME_GRP) %T>% plot()
+
+leaflet(width = "100%") %>%
+  addProviderTiles("Stamen") %>%
+  addPolygons(data = africa, weight = 3, opacity = 1)
+```
