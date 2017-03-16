@@ -1,12 +1,10 @@
 ---
-title: "gdal"
+title: "simple features"
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
-## simple features
 
 ```{r sf, message=TRUE}
 library(sf)

@@ -1,0 +1,18 @@
+---
+title: "postgis"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(sf)
+library(magrittr)
+library(dplyr)
+library(leaflet)
+```
+
+```{r postgis}
+dsn <- "PG:dbname='natural_earth2'
+  host='localhost' user='user'"
+
+st_layers(dsn)$name
+```

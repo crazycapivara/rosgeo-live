@@ -4,8 +4,10 @@ navbar:
   left:
     - text: "Quickstart"
       href: quickstart.html
-    - text: "gdal"
+    - text: "sf"
       href: gdal.html
+    - text: "postgis"
+      href: postgis.html
     #- text: "osrm"
     #  href: osrm.html
     - text: "Sandbox"
