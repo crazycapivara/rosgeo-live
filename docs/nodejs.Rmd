@@ -39,7 +39,8 @@ data <- '{
 (b <- lawn_buffer(data, 1, "kilometers"))
 class(b) <- "polygon"
 
-view(list(b, data)) %>% addProviderTiles("CartoDB")
+view(list(b, data)) %>%
+  addProviderTiles("CartoDB")
 ```
 
 ## mapshaper

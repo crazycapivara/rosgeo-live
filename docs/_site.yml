@@ -2,12 +2,12 @@ name: "shine-on-R"
 navbar:
   title: "Shine on R"
   left:
-    - text: "Hi folks"
-      href: index.html
+    - text: "Quickstart"
+      href: quickstart.html
     - text: "gdal"
       href: gdal.html
-    - text: "osrm"
-      href: osrm.html
+    #- text: "osrm"
+    #  href: osrm.html
     - text: "Sandbox"
       href: sandbox.html
     - text: "nodejs"
@@ -19,3 +19,4 @@ output:
     mathjax: ""
     theme: united
     css: styles.css
+    fig_width: 6
