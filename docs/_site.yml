@@ -5,7 +5,7 @@ navbar:
     - text: "Quickstart"
       href: quickstart.html
     - text: "sf"
-      href: gdal.html
+      href: sf.html
     - text: "postgis"
       href: postgis.html
     #- text: "osrm"
