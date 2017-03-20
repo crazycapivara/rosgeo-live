@@ -1,0 +1,27 @@
+---
+title: "shiny"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r shiny, eval=FALSE}
+library(shiny)
+library(leaflet)
+
+view <- fluidPage(
+  h1("quakes"),
+  leafletOutput("map")
+)
+
+controller <- function(input, output){
+  output$map <- renderLeaflet({
+    leaflet() %>% addTiles() %>% addMarkers(
+      data = quakes, clusterOptions = markerClusterOptions()
+    )
+  })
+}
+
+shinyApp(view, controller)
+```
