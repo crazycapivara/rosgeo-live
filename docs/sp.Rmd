@@ -11,6 +11,8 @@ fn <- "../FOSSGIS-workshop/data/ne_10m_airports/ne_10m_airports.shp"
 my_quakes <- quakes
 ```
 
+-----
+
 ## read data
 
 ```{r sp, message=TRUE}
@@ -36,5 +38,8 @@ my_quakes@proj4string <- CRS("+proj=longlat +datum=WGS84")
 library(leaflet)
 
 leaflet(width = "100%") %>% addProviderTiles("CartoDB") %>%
-  addCircleMarkers(data = my_quakes[1:20, ], radius = ~ sqrt(mag) * 10)
+  addCircleMarkers(
+    data = my_quakes[1:20, ],
+    radius = ~ sqrt(mag) * 10
+  )
 ```
