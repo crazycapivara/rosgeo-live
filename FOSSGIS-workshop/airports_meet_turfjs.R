@@ -44,13 +44,11 @@ HB_buffer$type
 HB_buffer$geometry
 HB_buffer$properties
 class(HB_buffer) <- "polygon"
-# same as ...
-HB_buffer$geometry$coordinates %>% lawn_polygon() %>% view()
 lawn::view(list(geojson_HB, HB_buffer))
 a <- lawn::view(HB_buffer)
 
 b <- st_buffer(airports[1, ], 0.5)
-a %>% addPolygons(data = b, color = "red")
+a %>% leaflet::addPolygons(data = b, color = "red")
 
 # distance to destination
 bearing <- 45
@@ -68,6 +66,7 @@ js_africa <- readr::read_file("FOSSGIS-workshop/data/africa.js") %>%
 lawn_area(js_africa)
 lawn_bbox(js_africa)
 lawn_center(js_africa) %>% view()
+lawn_centroid(js_africa) %>% view()
 
 africa <- sf::st_read("FOSSGIS-workshop/data/africa.js")
 sf::st_area(africa) %>% sum()
