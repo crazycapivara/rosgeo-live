@@ -1,0 +1,46 @@
+---
+title: "cran"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+[https://cran.r-project.org](https://cran.r-project.org)
+
+<img src="pix/rlibs.jpg">
+
+## spatial packages
+
+see also [https://cran.r-project.org/web/views/Spatial.html](https://cran.r-project.org/web/views/Spatial.html)
+
+```{r rlibs, eval=FALSE}
+library(sp)
+library(raster)
+library(rgeos)
+library(rgdal)
+library(gdalUtils)
+library(geosphere)
+library(ggmap)
+library(cartography)
+library(geojsonio)
+
+# open source routing machine
+library(osrm)
+
+# htmlwidgets
+library(leaflet)
+
+# nodejs wrapper
+library(lawn) # turfjs
+library(rmapshaper)
+
+library(sf)
+
+# mapedit - proof of concept 
+devtools::install_github("bhaskarvk/leaflet.extras")
+devtools::install_github("r-spatial/mapedit")
+```
+
+[http://r-spatial.org](http://r-spatial.org)
