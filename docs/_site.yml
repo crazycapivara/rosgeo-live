@@ -1,21 +1,30 @@
 name: "shine-on-R"
 navbar:
   title: "Shine on R"
+  type: inverse
   left:
     - text: "Quickstart"
       href: quickstart.html
-    - text: "sp"
-      href: sp.html  
-    - text: "sf"
-      href: sf.html
-    - text: "postgis"
-      href: postgis.html
+    - text: "shiny"
+      href: shiny.html
+    - text: "rmarkdown"
+      href: rmarkdown.html
+    - text: "rgdal"
+      menu:
+      - text: "sp"
+        href: sp.html  
+      - text: "sf"
+        href: sf.html
+      - text: "postgis"
+        href: postgis.html
     #- text: "osrm"
     #  href: osrm.html
     - text: "Sandbox"
       href: sandbox.html
     - text: "nodejs"
       href: nodejs.html
+    - text: "cpp"
+      href: cpp.html
     - text: "Contact"
       href: contact.html
 output:
