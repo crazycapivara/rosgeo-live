@@ -1,0 +1,40 @@
+---
+title: "sp"
+output:
+  html_document:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+fn <- "../FOSSGIS-workshop/data/ne_10m_airports/ne_10m_airports.shp"
+my_quakes <- quakes
+```
+
+## read data
+
+```{r sp, message=TRUE}
+library(sp)
+
+rgdal::ogrListLayers(fn)
+data <- rgdal::readOGR(fn, layer = "ne_10m_airports")
+```
+
+-----
+
+## sp data structures
+
+```{r sp-points, message=TRUE}
+head(my_quakes)
+class(quakes)
+coordinates(my_quakes) = ~ long + lat
+class(my_quakes)
+my_quakes@bbox
+my_quakes@proj4string
+my_quakes@proj4string <- CRS("+proj=longlat +datum=WGS84")
+
+library(leaflet)
+
+leaflet(width = "100%") %>% addProviderTiles("CartoDB") %>%
+  addCircleMarkers(data = my_quakes[1:20, ], radius = ~ sqrt(mag) * 10)
+```
