@@ -3,12 +3,24 @@ navbar:
   title: "Shine on R"
   type: inverse
   left:
+    - text: "%>%"
+      href: pipe.html
     - text: "Quickstart"
       href: quickstart.html
-    - text: "shiny"
-      href: shiny.html
-    - text: "rmarkdown"
-      href: rmarkdown.html
+    - text: ecosystem
+      menu:
+      - text: "libs"
+        href: rlibs.html
+      - text: "htmlwidgets"
+        href: htmlwidgets.html
+      - text: "shiny"
+        href: shiny.html
+      - text: "rmarkdown"
+        href: rmarkdown.html
+      - text: "nodejs"
+        href: nodejs.html
+      - text: "cpp"
+        href: cpp.html
     - text: "rgdal"
       menu:
       - text: "sp"
@@ -21,10 +33,6 @@ navbar:
     #  href: osrm.html
     - text: "Sandbox"
       href: sandbox.html
-    - text: "nodejs"
-      href: nodejs.html
-    - text: "cpp"
-      href: cpp.html
     - text: "Contact"
       href: contact.html
 output:
