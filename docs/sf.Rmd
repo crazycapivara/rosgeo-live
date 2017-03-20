@@ -4,13 +4,14 @@ title: "simple features"
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
 ```
 
 ```{r sf, message=TRUE}
 library(sf)
 
 # overview
-ls("package:sf")
+ls("package:sf") %>% .[grep("st_", .)]
 
 # read data
 data <- st_read("../FOSSGIS-workshop/data/ne_10m_airports/ne_10m_airports.shp")
