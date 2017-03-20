@@ -1,0 +1,29 @@
+---
+title: "pipe operator"
+---
+
+## %>%
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(leaflet)
+```
+
+```{r pipe, eval=FALSE}
+map <- leaflet() %>% addTiles() %>% addMarkers(data = quakes)
+
+# would be in Python sth like
+leaflet().addTiles().addMarkers(data = quakes)
+```
+
+-----
+
+## no-pipe
+
+```{r no-pipe, eval=FALSE}
+map <- leaflet()
+map <- addTiles(map)
+map <- addMarkers(map, data = quakes)
+
+map <- addMarkers(addTiles(leaflet()), data = quakes)
+```
