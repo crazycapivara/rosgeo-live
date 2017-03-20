@@ -1,0 +1,12 @@
+---
+title: "rmarkdown"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(magrittr)
+```
+
+```{r markdown, eval=TRUE}
+readr::read_file("../FOSSGIS-workshop/quakes.rmd") %>% cat()  
+```
