@@ -1,0 +1,44 @@
+---
+title: "htmlwidgets"
+---
+
+[htmlwidgets gallery](http://gallery.htmlwidgets.org/)
+
+----
+
+## leaflet
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(leaflet)
+library(sf)
+airports_shp <- "../FOSSGIS-workshop/data/ne_10m_airports/ne_10m_airports.shp"
+```
+
+```{r htmlwidgets}
+leaflet(width = "100%") %>% addProviderTiles("CartoDB") %>%
+  addCircleMarkers(
+    data = st_read(airports_shp),
+    popup = ~ name,
+    weight = 2,
+    color = "green"
+  )
+```
+
+-----
+
+## yaml
+
+```{r htmlwidgets-yaml, eval=FALSE}
+dependencies:
+  - name: jquery
+    version: 1.12.4
+    src: "htmlwidgets/lib/jquery"
+    script: jquery.min.js
+  - name: leaflet
+    version: 0.7.7
+    src: "htmlwidgets/lib/leaflet"
+    script: leaflet.js
+stylesheet: leaflet.css
+...
+```
