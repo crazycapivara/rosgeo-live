@@ -3,4 +3,4 @@
 .RData
 .Ruserdata
 *.html
-docs/_site/
+docs_src/_site/
