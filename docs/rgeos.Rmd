@@ -1,0 +1,28 @@
+---
+title: "rgeos"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(rgdal)
+library(magrittr)
+sp_quakes <- rgdal::readOGR("../FOSSGIS-workshop/data/sp_quakes.geojson", "OGRGeoJSON")
+```
+
+```{r rgeos, message=FALSE}
+library(rgeos)
+
+ls("package:rgeos") %>% .[grep("^g[A-Z]", .)]
+
+class(sp_quakes)
+ch <- gConvexHull(sp_quakes)
+class(ch)
+
+plot(sp_quakes, col = "blue")
+plot(ch, add = TRUE)
+
+africa <- readOGR("../FOSSGIS-workshop/data/africa.js")
+sp::spplot(africa, "LABELRANK", scales = list(draw = TRUE))
+
+gUnionCascaded(africa) %>% plot(col = "blue")
+```

@@ -1,0 +1,59 @@
+---
+title: "leaflet"
+output:
+  html_document:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(sf)
+library(magrittr)
+airports <- readRDS("../FOSSGIS-workshop/data/ne_10m_airports.rds") %>%
+  subset(name %in% c("Hamburg", "Bremen"))
+
+```
+
+-----
+
+## __add__ functions - Overview
+
+```{r leaflet-overview}
+library(leaflet)
+
+ls("package:leaflet") %>% .[grep("^add", .)]
+```
+
+-----
+
+## add measure and mini map
+
+```{r leaflet-measure}
+leaflet(width = "100%") %>% addProviderTiles("CartoDB") %>%
+  addMarkers(data = airports, popup = ~ name) %>%
+  addMeasure(primaryLengthUnit = "kilometers") %>%
+  addMiniMap()
+
+sp::spDists(airports)
+```
+
+[rleaflet tutorial](https://rstudio.github.io/leaflet/)
+
+-----
+
+## mapedit
+
+```{r mapedit, eval=FALSE}
+devtools::install_github("bhaskarvk/leaflet.extras")
+devtools::install_github("r-spatial/mapedit")
+
+library(leaflet)
+library(mapedit)
+
+what_we_created <- leaflet() %>%
+  addTiles() %>%
+  edit_map()
+
+```
+
+[mapedit](http://r-spatial.org/r/2017/01/30/mapedit_intro.html)

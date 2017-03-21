@@ -1,0 +1,14 @@
+---
+title: "qgis scripts"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r qgis-script, eval=FALSE}
+##input=vector
+##output=output vector
+input$test <- -1L
+output = subset(input, region == "Africa")
+```
