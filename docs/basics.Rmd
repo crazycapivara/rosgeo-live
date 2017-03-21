@@ -9,6 +9,11 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r say-hi, eval=FALSE}
+"R is not just a statistics package,
+  it's a flexible and powerful language"
+```
+
 -----
 
 ## Vector (aka mother of all data structures)
