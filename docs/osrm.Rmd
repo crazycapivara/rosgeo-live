@@ -4,6 +4,7 @@ title: "osrm"
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(magrittr)
 fn <- "../FOSSGIS-workshop/data/ne_10m_airports/ne_10m_airports.shp"
 airports <- sf::st_read(fn) %>%
   subset(name %in% c("Bremen", "Hamburg")) %>% as("Spatial")
@@ -20,5 +21,8 @@ route <- osrmRoute(airports[1, ], airports[2, ], sp = TRUE)
 leaflet(width = "100%") %>% addProviderTiles("CartoDB") %>%
   addMarkers(data = airports, popup = ~ name) %>%
   addPolylines(data = route) %>%
-  addControl(sprintf("<b>Duration</b>: %i min", as.integer(route$duration)))
+  addControl(
+    sprintf("<b>Duration</b>: %i min",
+            as.integer(route$duration))
+  )
 ```

@@ -8,9 +8,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Shine on R \{Aaaahrrr\} {.big}
 
-### Stefan Kuethe
+### Stefan Küthe
 
-### March 15, 2017
+### March 22, 2017
 
 ##
 

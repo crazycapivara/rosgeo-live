@@ -16,7 +16,11 @@ fn <- "../FOSSGIS-workshop/data/africa.js"
 africa <- st_read(fn, quiet = TRUE) %>%
   select(LABELRANK, INCOME_GRP) %T>% plot()
 
+pal <- colorNumeric(c("blue", "red"), africa$LABELRANK)
+
 leaflet(width = "100%") %>%
   addProviderTiles("Stamen") %>%
-  addPolygons(data = africa, weight = 3, opacity = 1)
+  addPolygons(data = africa,
+              fillOpacity = 0.6, weight = 2,
+              color = ~ pal(LABELRANK))
 ```

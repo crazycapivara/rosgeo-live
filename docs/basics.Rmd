@@ -1,0 +1,58 @@
+---
+title: "Basics"
+output:
+  html_document:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+-----
+
+## Vector (aka mother of all data structures)
+
+```{r basics}
+# Skalar?
+x <- 5
+
+# First element
+x[1]
+
+# Everything is an object
+class(x)
+
+nm <- c("Peter", "Bender")
+nr <- c(2, 4)
+
+paste("Hi", nm, "your id is", nr)
+```
+
+-----
+
+## data frame (aka workhorse)
+
+```{r basics-df}
+head(mtcars)
+
+# df[rows, columns]
+mtcars[mtcars$gear == 4, c("cyl", "gear")]
+```
+
+-----
+
+## apply family or how to loop
+
+```{r basics-loops}
+# extraordinary
+l <- list()
+for(i in 1:4){
+  l[[i]] <- sqrt(i)
+}
+l
+
+# apply family
+l <- lapply(1:4, sqrt)
+l
+```

@@ -5,6 +5,12 @@ title: "Sandbox"
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(leaflet)
+
+addMyControls <- function(map){
+  map %>%
+    addControl("<h1>Stefan Küthe</h1>", "topright") %>%
+    addControl("<h3>stefan@fdkii.de</h3>", "bottomleft")
+}
 ```
 
 ```{r leaflet, message=FALSE}
@@ -12,6 +18,5 @@ leaflet(height = 350, width = "100%") %>%
   addProviderTiles("CartoDB") %>%
   addMarkers(data = quakes,
              clusterOptions = markerClusterOptions()) %>%
-  addControl("<h1>FOSSGIS 2017</h1>", "topright") %>%
-  addControl("<h2>Stefan Kuethe</h2>", "bottomleft")
+  addMyControls()
 ```

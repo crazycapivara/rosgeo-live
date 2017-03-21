@@ -3,11 +3,13 @@ navbar:
   title: "Shine on R"
   type: inverse
   left:
+    - text: "Say Hi to R"
+      href: basics.html
     - text: "%>%"
       href: pipe.html
     - text: "Quickstart"
       href: quickstart.html
-    - text: ecosystem
+    - text: Ecosystem
       menu:
       - text: "libs"
         href: rlibs.html
@@ -33,14 +35,17 @@ navbar:
         href: sf.html
       - text: "postgis"
         href: postgis.html
-    #- text: "osrm"
-    #  href: osrm.html
-    #- text: "Sandbox"
-    #  href: sandbox.html
+    - text: "osrm"
+      href: osrm.html
     - text: "QGIS"
       href: qgis.html
     - text: "Contact"
-      href: contact.html
+      menu:
+      - text: "Simple"
+        href: contact.html
+      - text: "Sandbox"
+        href: sandbox.html
+  right:
     - text: links
       menu:
       - text: leaflet
