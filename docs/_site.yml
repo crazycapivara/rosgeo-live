@@ -43,8 +43,12 @@ navbar:
       href: contact.html
     - text: links
       menu:
-      - text: rleaflet
+      - text: leaflet
         href: https://rstudio.github.io/leaflet/
+      - text: htmlwidgets
+        href: http://gallery.htmlwidgets.org/
+      - text: owmr
+        href: https://crazycapivara.github.io/owmr/
 output:
   html_document:
     mathjax: ""
