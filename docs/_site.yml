@@ -21,20 +21,30 @@ navbar:
         href: nodejs.html
       - text: "cpp"
         href: cpp.html
-    - text: "rgdal"
+      - text: "leaflet"
+        href: leaflet.html
+    - text: "gdal"
       menu:
-      - text: "sp"
-        href: sp.html  
+      - text: "sp & rgdal"
+        href: sp.html
+      - text: "rgeos"
+        href: rgeos.html
       - text: "sf"
         href: sf.html
       - text: "postgis"
         href: postgis.html
     #- text: "osrm"
     #  href: osrm.html
-    - text: "Sandbox"
-      href: sandbox.html
+    #- text: "Sandbox"
+    #  href: sandbox.html
+    - text: "QGIS"
+      href: qgis.html
     - text: "Contact"
       href: contact.html
+    - text: links
+      menu:
+      - text: rleaflet
+        href: https://rstudio.github.io/leaflet/
 output:
   html_document:
     mathjax: ""

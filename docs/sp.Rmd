@@ -1,5 +1,5 @@
 ---
-title: "sp"
+title: "sp & rgdal"
 output:
   html_document:
     toc: true
@@ -8,16 +8,13 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 fn <- "../FOSSGIS-workshop/data/ne_10m_airports/ne_10m_airports.shp"
-my_quakes <- quakes
 ```
 
 -----
 
 ## read data
 
-```{r sp, message=TRUE}
-library(sp)
-
+```{r rgdal, message=TRUE}
 rgdal::ogrListLayers(fn)
 data <- rgdal::readOGR(fn, layer = "ne_10m_airports")
 ```
@@ -27,13 +24,14 @@ data <- rgdal::readOGR(fn, layer = "ne_10m_airports")
 ## sp data structures
 
 ```{r sp-points, message=TRUE}
+my_quakes <- quakes
 head(my_quakes)
 class(quakes)
-coordinates(my_quakes) = ~ long + lat
+sp::coordinates(my_quakes) = ~ long + lat
 class(my_quakes)
 my_quakes@bbox
 my_quakes@proj4string
-my_quakes@proj4string <- CRS("+proj=longlat +datum=WGS84")
+my_quakes@proj4string <- sp::CRS("+proj=longlat +datum=WGS84")
 
 library(leaflet)
 
@@ -42,4 +40,17 @@ leaflet(width = "100%") %>% addProviderTiles("CartoDB") %>%
     data = my_quakes[1:20, ],
     radius = ~ sqrt(mag) * 10
   )
+```
+
+-----
+
+## write data
+
+```{r rgdal-write, eval=FALSE}
+rgdal::writeOGR(
+  my_quakes,
+  "../FOSSGIS-workshop/data/sp_quakes.geojson", 
+  layer = "my_quakes",
+  driver = "GeoJSON"
+)
 ```
