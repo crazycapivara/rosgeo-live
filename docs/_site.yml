@@ -11,6 +11,8 @@ navbar:
       href: quickstart.html
     - text: Ecosystem
       menu:
+      - text: "RStudio IDE"
+        href: https://www.rstudio.com/
       - text: "libs"
         href: rlibs.html
       - text: "htmlwidgets"
@@ -48,12 +50,18 @@ navbar:
   right:
     - text: links
       menu:
-      - text: leaflet
+      - text: "leaflet"
         href: https://rstudio.github.io/leaflet/
-      - text: htmlwidgets
+      - text: "htmlwidgets"
         href: http://gallery.htmlwidgets.org/
-      - text: owmr
+      - text: "owmr"
         href: https://crazycapivara.github.io/owmr/
+      - text: "RStudio"
+        href: https://www.rstudio.com/
+      - text: "Shiny gallery"
+        href: https://shiny.rstudio.com/gallery/
+      - text: "docker"
+        href: https://hub.docker.com/u/rocker/
 output:
   html_document:
     mathjax: ""
