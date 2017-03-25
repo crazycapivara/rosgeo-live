@@ -32,6 +32,14 @@ set_coords <- function(coords){
   }
 }
 
+set_marker <- function(coords){
+  leafletProxy("map") %>%
+    addMarkers(
+      lng = coords$lng,
+      lat = coords$lat
+    )
+}
+
 view <- fluidPage(
   h1("osrm"),
   h2("hi, click it to set source and destinations."),
@@ -42,11 +50,7 @@ view <- fluidPage(
 controller <- function(input, output){
   observeEvent(input$map_click, {
     print(input$map_click)
-    leafletProxy("map") %>%
-      addMarkers(
-        lng = input$map_click$lng,
-        lat = input$map_click$lat
-      )
+    set_marker(input$map_click)
     set_coords(input$map_click)
     # output current source and destination
     print(.appv$src)
