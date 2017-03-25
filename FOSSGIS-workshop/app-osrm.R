@@ -1,7 +1,14 @@
+# shiny app using osrm
+# click on map to set source and destination points
+# author: stefan kuethe
+# FOSSGIS 2017
+# ---
 library(shiny)
 library(leaflet)
+library(sp)
+library(osrm)
 
-wsg84 <- sp::CRS("+proj=longlat +datum=WGS84")
+wsg84 <- CRS("+proj=longlat +datum=WGS84")
 
 .appv <- reactiveValues(
   flag = TRUE,
@@ -12,7 +19,8 @@ wsg84 <- sp::CRS("+proj=longlat +datum=WGS84")
 set_coords <- function(coords){
   coords <- data.frame(
     lng = coords$lng,
-    lat = coords$lat, id = 1
+    lat = coords$lat,
+    id = sample(1:1000, 1) # set random id
   )
   coordinates(coords) <- ~ lng + lat
   coords@proj4string <- wsg84
@@ -25,7 +33,8 @@ set_coords <- function(coords){
 }
 
 view <- fluidPage(
-  h1("hi, click it."),
+  h1("osrm"),
+  h2("hi, click it to set source and destinations."),
   leafletOutput("map"),
   style = "font-family: ubuntu;"
 )
@@ -45,13 +54,15 @@ controller <- function(input, output){
     # if source and destination is set then get route
     if(!is.null(.appv$src) & !is.null(.appv$dst)){
       print("get route")
-      route <- osrm::osrmRoute(.appv$src, .appv$dst, sp = TRUE)
+      route <- osrmRoute(.appv$src, .appv$dst, sp = TRUE)
       print(route)
+      # update view
       leafletProxy("map") %>%
         addPolylines(data = route, weight = 4, color = "red")
     }
   })
   
+  # base view
   output$map <- renderLeaflet({
     leaflet() %>% addTiles() %>% setView(9.4706, 51.2878, 12)
   })
